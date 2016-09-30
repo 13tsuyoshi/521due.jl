@@ -2,9 +2,9 @@ function my_lin_interp(grid,vals)
     function func(x::Real)
             lower_index = searchsortedlast(grid,x)
             if lower_index == 0  
-            return "$x is external to grid ! It's too small."
+            return vals[1]
             elseif lower_index == length(grid)
-            return "$x is external to grid ! It's too big."
+            return vals[end]
             else
                 y_value =  (vals[lower_index+1] - vals[lower_index]) * (x - grid[lower_index]) /
                  (grid[lower_index+1] - grid[lower_index])  + vals[lower_index]
